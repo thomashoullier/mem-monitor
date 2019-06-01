@@ -3,7 +3,7 @@
 FILE="/home/modi/repos/mem-monitor/test.txt"
 interval=0.01
 length=1
-pid=1244
+pid=$(pidof sbcl)
 
 # Command to execute during monitoring
 comm="cat /proc/$pid/statm | cut --delimiter=' ' -f2"

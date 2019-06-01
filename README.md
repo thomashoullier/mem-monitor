@@ -7,6 +7,7 @@ As seen in the linux documentation, the location `/proc/[pid]/statm`
 holds data about the memory usage of the process. The second number is the
 number of pages used as resident memory. To get the size of a page in bytes:
 `getconf PAGESIZE`.
+It is unclear for me what the update step of the information in `/proc` is.
 
 ## References
   * https://stackoverflow.com/questions/10400751/how-do-vmrss-and-resident-set-size-match
