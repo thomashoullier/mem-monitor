@@ -1,7 +1,8 @@
 ;;;; Simply grab more or less memory during a given time window
-(asdf:load-system :sb-proc)
-
-(sb-proc:run-prog "/bin/sh" "/home/modi/repos/mem-monitor/mem-monitor.sh")
+(sb-ext:run-program "/bin/sh"
+		    (list "/home/modi/repos/mem-monitor/mem-monitor.sh"
+			  "$(pidof sbcl)" "1" "0.01")
+		    :wait nil :search T)
 
 (loop for mem in '(2 10 5 15 3) do
   (let ((arr nil))

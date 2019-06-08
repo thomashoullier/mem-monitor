@@ -1,9 +1,9 @@
 #!/bin/sh
 
 FILE="/home/modi/repos/mem-monitor/test.txt"
-interval=0.01
-length=1
-pid=$(pidof sbcl)
+pid=$1
+length=$2
+interval=$3
 
 # Command to execute during monitoring
 comm="cat /proc/$pid/statm | cut --delimiter=' ' -f2"
@@ -21,7 +21,7 @@ while [ "$curdate" -lt "$length" ]
 do
 	curdate=$(($(date +%s%3N) - begdate))
 	strbuf=$(printf "%s\n%s %s" "$strbuf" "$curdate" "$(($(eval "$comm") * pagesize))")
-	sleep $interval
+	sleep "$interval"
 done
 
 # Write to file
