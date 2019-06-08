@@ -15,11 +15,11 @@ length=$((length * 1000))
 strbuf=$(printf "time data")
 
 #     Date in milliseconds
-curdate=$(date +%s%3N)
-enddate=$((curdate + length))
-while [ "$curdate" -lt "$enddate" ]
+begdate=$(date +%s%3N)
+curdate=$(($(date +%s%3N) - begdate))
+while [ "$curdate" -lt "$length" ]
 do
-	curdate=$(date +%s%3N)
+	curdate=$(($(date +%s%3N) - begdate))
 	strbuf=$(printf "%s\n%s %s" "$strbuf" "$curdate" "$(($(eval "$comm") * pagesize))")
 	sleep $interval
 done
