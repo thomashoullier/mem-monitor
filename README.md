@@ -68,7 +68,6 @@ explicitely between each array re-declaration, the default behaviour being to
 leave the RAM alone and fill it up as long as some threshold isn't reached.
 
 ```common-lisp
-;;;; Simply grab more or less memory during a given time window
 (sb-ext:run-program "mem-monitor"
 		    (list "$(pidof sbcl)" "1" "0.01"
 			  "/home/modi/repos/mem-monitor/test.txt")
