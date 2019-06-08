@@ -5,7 +5,7 @@ process as a function of time.
 ## Usage
 'mem-monitor.sh' outputs a text file monitoring the resident memory usage of a
 process.
-```
+```sh
 mem-monitor pid length interval fileout
 ```
 With:
@@ -28,7 +28,7 @@ number of pages used as resident memory. To get the size of a page in bytes:
 
 ## Tests
 Passes:
-```
+```sh
 shellcheck -s sh -S style mem-monitor.sh
 ```
 
