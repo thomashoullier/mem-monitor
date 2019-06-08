@@ -25,7 +25,7 @@ pagesize=$(($(getconf PAGESIZE) / 1024))
 # Length of time of monitoring in milliseconds
 length=$((length * 1000))
 # Header
-strbuf=$(printf "time data")
+strbuf=$(printf "time res-mem")
 
 #     Date in milliseconds
 begdate=$(date +%s%3N)
