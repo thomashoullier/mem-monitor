@@ -36,7 +36,7 @@ The command:
 mem-monitor $(pidof firefox | cut -d" " -f1) 1 0.1 ~/repos/mem-monitor/test.txt
 ```
 Generates the file:
-```
+```raw
 time res-mem
 2 378016
 105 378016
