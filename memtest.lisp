@@ -1,7 +1,6 @@
 ;;;; Simply grab more or less memory during a given time window
-(sb-ext:run-program "/bin/sh"
-		    (list "/home/modi/repos/mem-monitor/mem-monitor.sh"
-			  "$(pidof sbcl)" "1" "0.01"
+(sb-ext:run-program "mem-monitor"
+		    (list "$(pidof sbcl)" "1" "0.01"
 			  "/home/modi/repos/mem-monitor/test.txt")
 		    :wait nil :search T)
 

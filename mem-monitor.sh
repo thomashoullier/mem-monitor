@@ -1,5 +1,12 @@
 #!/bin/sh
 
+# Input check
+if [ ! $# -eq 4 ]
+then
+	echo "mem-monitor: Invalid number of arguments." >&2
+        exit 1
+fi
+
 pid=$1
 length=$2
 interval=$3
