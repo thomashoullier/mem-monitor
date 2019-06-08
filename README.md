@@ -29,7 +29,7 @@ With:
   * *time-i*: The series of **dates**, in *milliseconds* since beginning of
               script.
   * *res-mem-i*: The amount of **resident memory** the process takes up.
-In *KB*.
+In *KB*. See below for exact definition.
 ## Example 1
 The command:
 ```sh
@@ -51,7 +51,36 @@ time res-mem
 1037 378016
 ```
 ## Example 2
+This script was actually written for the following use case.
+We launch the script from inside SBCL just before a call for a function which
+we want to monitor for RAM usage. Let's show an example of declaring arrays of
+various sizes on top of each other. Note that we call the garbage collector
+explicitely between each array re-declaration, the default behaviour being to
+leave the RAM alone and fill it up as long as some threshold isn't reached.
 
+```common-lisp
+;;;; Simply grab more or less memory during a given time window
+(sb-ext:run-program "mem-monitor"
+		    (list "$(pidof sbcl)" "1" "0.01"
+			  "/home/modi/repos/mem-monitor/test.txt")
+		    :wait nil :search T)
+
+(loop for mem in '(2 10 5 15 3) do
+  (let ((arr nil))
+    (setf arr (make-array (* mem 1000000) :element-type 'double-float
+					  :initial-element 0d0))
+    (loop for i from 0 below (length arr) do
+      (setf (aref arr i) 1d0))
+    (sleep 0.1))
+      (sb-ext:gc :full t))
+```
+
+A `test.txt` file is generated and we can plot the data using gnuplot
+and the small script `disp.gp`:
+```sh
+gnuplot -persistent disp.gp
+```
+![Gnuplot window](doc/test.png)
 ## Measuring resident memory usage
 As seen in the linux documentation, the location `/proc/[pid]/statm`
 holds data about the memory usage of the process. The second number is the
