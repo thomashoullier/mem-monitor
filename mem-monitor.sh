@@ -5,6 +5,12 @@ pid=$1
 length=$2
 interval=$3
 
+#Delete the data file if it already exists
+if [ -e "$FILE" ]
+then
+	rm "$FILE"
+fi
+
 # Command to execute during monitoring
 comm="cat /proc/$pid/statm | cut --delimiter=' ' -f2"
 # Page size in KB
