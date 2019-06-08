@@ -95,8 +95,8 @@ gnuplot -persistent disp.gp
 ## Measuring resident memory usage
 As seen in the linux documentation, the location `/proc/[pid]/statm`
 holds data about the memory usage of the process. The second number is the
-number of pages used as resident memory. To get the size of a page in bytes:
-`getconf PAGESIZE`.
+number of pages used as resident memory. We get the size of a page in bytes
+with `getconf PAGESIZE`.
 
 ## Tests
 Passes:
