@@ -1,9 +1,9 @@
 #!/bin/sh
 
-FILE="/home/modi/repos/mem-monitor/test.txt"
 pid=$1
 length=$2
 interval=$3
+FILE=$4
 
 #Delete the data file if it already exists
 if [ -e "$FILE" ]
@@ -31,6 +31,6 @@ do
 done
 
 # Write to file
-printf "%s\n" "$strbuf" >> $FILE
+printf "%s\n" "$strbuf" >> "$FILE"
 
 echo "DONE"
