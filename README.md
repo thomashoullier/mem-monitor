@@ -3,7 +3,7 @@ We write a simple shell script for monitoring the resident memory used by a
 process as a function of time.
 
 ## Usage
-'mem-monitor.sh' outputs a text file monitoring the resident memory usage of a
+`mem-monitor.sh` outputs a text file monitoring the resident memory usage of a
 process.
 ```sh
 mem-monitor pid length interval fileout
