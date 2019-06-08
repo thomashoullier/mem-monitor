@@ -21,7 +21,7 @@ while [ "$curdate" -lt "$enddate" ]
 do
 	curdate=$(date +%s%3N)
 	strbuf=$(printf "%s\n%s %s" "$strbuf" "$curdate" "$(($(eval "$comm") * pagesize))")
-        sleep $interval
+	sleep $interval
 done
 
 # Write to file

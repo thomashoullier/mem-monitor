@@ -9,6 +9,10 @@ number of pages used as resident memory. To get the size of a page in bytes:
 `getconf PAGESIZE`.
 It is unclear for me what the update step of the information in `/proc` is.
 
+## TEMP NOTES
+  * We can start and stop the script from sbcl.
+  * Just send a kill signal to the script from sbcl to stop it. (Call the kill pid command)
+  * Use the scbl-piping library.
 ## References
   * https://stackoverflow.com/questions/10400751/how-do-vmrss-and-resident-set-size-match
   * http://man7.org/linux/man-pages/man5/proc.5.html
