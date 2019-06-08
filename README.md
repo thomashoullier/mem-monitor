@@ -18,7 +18,7 @@ With:
 
 The output is two columns, separated by spaces, with a header.
 For n sample points:
-```
+```text
 time res-mem
 time-1 res-mem-1
 time-2 res-mem-2
@@ -29,7 +29,7 @@ With:
   * *time-i*: The series of **dates**, in *milliseconds* since beginning of
               script.
   * *res-mem-i*: The amount of **resident memory** the process takes up.
-                 In *KB*.
+In *KB*.
 ## Example 1
 The command:
 ```sh
