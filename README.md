@@ -2,6 +2,24 @@
 We write a simple shell script for monitoring the resident memory used by a
 process as a function of time.
 
+## Usage
+'mem-monitor.sh' outputs a text file monitoring the resident memory usage of a
+process.
+```
+mem-monitor pid length interval fileout
+```
+With:
+  - **pid**: The pid of the process to monitor.
+  - **length**: The length of time during which the process is monitored.
+                In *seconds*.
+  - **interval**: The time sampling step. In *seconds*.
+  - **fileout**: The path to output file. The provided file is superseded if it
+                 already exists.
+
+## Example 1
+
+## Example 2
+
 ## Measuring resident memory usage
 As seen in the linux documentation, the location `/proc/[pid]/statm`
 holds data about the memory usage of the process. The second number is the
