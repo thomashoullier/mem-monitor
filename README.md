@@ -12,11 +12,11 @@ mem-monitor pid length interval fileout
 
 With:
   - **pid**: The pid of the process to monitor.
-  - **length**: The length of time during which the process is monitored.
-                In *seconds*.
-  - **interval**: The time sampling step. In *seconds*.
+  - **length**: The length of time during which the process is monitored. 
+In *milliseconds*.
+  - **interval**: The time sampling step. In *milliseconds*.
   - **fileout**: The path to output file. The provided file is superseded if it
-                 already exists.
+already exists.
 
 The output is two columns, separated by spaces, with a header.
 For n sample points:
@@ -39,7 +39,7 @@ In *KB*. See below for exact definition.
 The command:
 
 ```sh
-mem-monitor $(pidof firefox | cut -d" " -f1) 1 0.1 ~/repos/mem-monitor/test.txt
+mem-monitor $(pidof firefox | cut -d" " -f1) 1000 100 ~/repos/mem-monitor/test.txt
 ```
 
 Generates the file:
@@ -69,7 +69,7 @@ leave the RAM alone and fill it up as long as some threshold isn't reached.
 
 ```common-lisp
 (sb-ext:run-program "mem-monitor"
-		    (list "$(pidof sbcl)" "1" "0.01"
+		    (list "$(pidof sbcl)" "1000" "10"
 			  "/home/modi/repos/mem-monitor/test.txt")
 		    :wait nil :search T)
 

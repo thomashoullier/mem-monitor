@@ -11,7 +11,8 @@ pid=$1
 length=$2
 interval=$3
 FILE=$4
-
+#Interval in seconds
+interval=$(awk 'BEGIN { print ( '"$interval"' / 1000 ) }')
 #Delete the data file if it already exists
 if [ -e "$FILE" ]
 then
@@ -22,8 +23,6 @@ fi
 comm="cat /proc/$pid/statm | cut --delimiter=' ' -f2"
 # Page size in KB
 pagesize=$(($(getconf PAGESIZE) / 1024))
-# Length of time of monitoring in milliseconds
-length=$((length * 1000))
 # Header
 strbuf=$(printf "time res-mem")
 
